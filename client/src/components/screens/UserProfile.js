@@ -6,8 +6,9 @@ export default function Profile() {
   const [userProfile,setProfile]=useState(null)
   
   const {state,dispatch}= useContext(UserContext)
+  console.log('state=====',state)
   const{userid}=useParams()
-  const [showfollow,setShowFollow] = useState(state?!state.following.includes(userid):true)
+  const [showfollow,setShowFollow] = useState(state?!state?.following?.includes(userid):true)
 
   useEffect(()=>{
     fetch(`/user/${userid}`,{

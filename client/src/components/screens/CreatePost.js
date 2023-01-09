@@ -69,15 +69,15 @@ export default function CreatePost() {
         textAlign:"center"
     }}
     >
-            <input 
+      <input style={{fontWeight: "bold"}}
             type="text" 
             placeholder="title"
             value={title}
             onChange={(e)=>setTitle(e.target.value)}
             />
-            <input 
+            <textarea 
             type="text" 
-            placeholder="body"
+            placeholder="Description"
             value={body}
             onChange={(e)=>setBody(e.target.value)}
             />

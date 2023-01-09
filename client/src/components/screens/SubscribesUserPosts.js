@@ -117,8 +117,9 @@ const deletePost = (postid)=>{
       {
         data.map(item=>{
           return(
-      <div className='card home-card'key={item._id}>
-        <h5 style={{padding:"8px", fontWeight:"bold"}}><Link to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name}</Link> {item.postedBy._id === state._id
+      <div className='card home-card'key={item?._id}>
+        <h5 style={{padding:"8px",fontWeight:"bold",textAlign:"center",background:"LightGray"}}><Link to={item?.postedBy?._id !== state._id?"/profile/"+item?.postedBy?._id :"/profile"  }>{item?.postedBy?.name}</Link> 
+        {item?.postedBy?._id === state._id
         && <i className="material-icons" style={{float:"right"}}
         onClick={()=>deletePost(item._id)}
         >delete</i>
@@ -128,27 +129,27 @@ const deletePost = (postid)=>{
 
         </div>
         <div className='card-content'>
-        <i className="material-icons" style={{color:"red"}}>favorite</i>
+        <i className="material-icons" ></i>
                             {item.likes.includes(state._id)
                             ? 
-                             <i className="material-icons"
+                             <i className="material-icons" style={{color:"red"}}
                                     onClick={()=>{unlikePost(item._id)}}
                               >thumb_down</i>
                             : 
-                            <i className="material-icons"
+                            <i className="material-icons" style={{color:"green"}}
                             onClick={()=>{likePost(item._id)}}
                             >thumb_up</i>
                             }
                             
        
          <h6>{item.likes.length} likes</h6>
-          <h6>{item.title}</h6>
-          <p>{item.body}</p>
+         <h6 style={{fontWeight:"bold",background:"DodgerBlue",color:"white",padding:"10px"}}>{item.title}</h6>
+           <p style={{background:"LightGray",padding:"10px"}}>{item.body} </p>
 
           {
            item.comments.map(record=>{
             return(
-           <h6 key={record._id}><span style={{fontWeight:"500"}}>{record.postedBy.name}</span> {record.text}</h6>
+           <h6 key={record?._id}><span style={{fontWeight:"500", color:"red"}}>{record?.postedBy?.name}</span> {record?.text}</h6>
             )
             })
              }

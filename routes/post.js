@@ -9,6 +9,7 @@ router.get('/allpost',requireLogin,(req,res)=>{
     Post.find()
     .populate("postedBy","_id name")
     .populate("comments.postedBy","_id name")
+    .sort('-createdAt')
     .then((posts)=>{
         res.json({posts})
     }).catch(err=>{
@@ -126,7 +127,7 @@ router.delete('/deletepost/:postId',requireLogin,(req,res)=>{
         if(err || !post){
             return res.status(422).json({error:err})
         }
-        if(post.postedBy._id.toString() === req.user._id.toString()){
+        if(post._id.toString() === req.user._id.toString()){
               post.remove()
               .then(result=>{
                   res.json(result)
@@ -136,5 +137,10 @@ router.delete('/deletepost/:postId',requireLogin,(req,res)=>{
         }
     })
 })
+
+
+
+
+
 
 module.exports = router

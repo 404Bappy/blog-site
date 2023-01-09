@@ -63,41 +63,42 @@ export default function Profile() {
 
   return (
     
-    <div style={{maxWidth:"550px", margin:"0px auto"}}>
-      <div style={
-
-{
-  
+    <div style={{maxWidth:"550px", margin:"2px auto"}}>
+      <div style={{
   margin:"18px 0px",
   borderBottom: "1px solid grey"
 }}>
-      <div style={
-
-        {
+      <div style={ {
           display:"flex",
           justifyContent: "space-around",
          
         }
       }>
         <div>
-          <img style={{width:"160px",height:"160px", borderRadius:"80px"} }
+       
+          <img style={{width:"160px",height:"160px", borderRadius:"80px",} }
+          
           src={state?state.pic:"loading"} alt=""
+         
           />
+          
 
         </div>
         <div>
-          <h4>{state?state.name:"loading"}</h4>
+          <h4 style={{background:"MediumSeaGreen",color:"white",fontWeight:"bold" ,padding:"10px",fontSize:"20px", textAlign:"center" ,borderRadius:"15px"}}>{state?state.name:"loading"}</h4>
           <h5>{state?state.email:"loading"}</h5>
           <div style={{display:"flex", justifyContent:"space-between", width:"108%"}}>
             <h6>{mypics.length} posts</h6>
-            <h6>{state?state.followers.length:"0"} followers</h6>
-            <h6>{state?state.following.length:"0"} following</h6>
+            
+            
+            <h6>{state?state?.followers?.length:"0"} followers</h6>
+            <h6>{state?state?.following?.length:"0"} following</h6>
           </div>
         </div>
    </div>
 
           
-          <div className="file-field input-field" style={{margin:"10px"}}>
+          <div className="file-field input-field" style={{margin:"30px"}}>
                 <div className="btn #64b5f6 blue darken-1">
                     <span>Update Pic</span>
                     <input type="file" onChange={(e)=>updatePhoto(e.target.files[0])}/>
@@ -109,11 +110,15 @@ export default function Profile() {
           </div>
 
 
-    <div className="gallery">
+    <div className="gallery" style={{marginLeft:"30px"}}>
       {
         mypics.map(item=>{
           return(
-            <img key={item._id} className='item' src={item.photo} alt={item.title}/>
+            
+            <h4 style={{fontSize:"20px",}}><img key={item._id} className='item' src={item.photo} alt={item.title}/>{item.title}</h4>
+            
+            
+            
           )
         })
       }

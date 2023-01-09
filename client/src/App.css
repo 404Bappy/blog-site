@@ -6,6 +6,17 @@ a{
 
 .brand-logo,h2{
   font-family: 'Grand Hotel', cursive;
+  color:rgb(54, 52, 52)!important;
+  font-weight: bold;
+  
+  
+}
+.btn{
+  padding: auto;
+}
+.btn:hover{
+  background-color: DodgerBlue;
+  color:white;
 }
 
 .mycard{
@@ -17,6 +28,10 @@ a{
   max-width: 400px;
   margin: 10px auto;
 }
+.title{
+  font-weight: bold;
+ 
+}
 
 .input-field input[type=text]:focus {
   border-bottom: 1px solid rgb(8, 93, 252) !important;
@@ -27,6 +42,7 @@ a{
   box-shadow: 0 1px 0 0 rgb(8, 93, 252)  !important;
 }
 
+
 .gallery{
   display: flex;
   flex-wrap: wrap;
@@ -34,13 +50,19 @@ a{
 }
 
 .item{
-  width: 30%;
+  width: 20%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  
+  
 }
 
+
 .home-card{
-  max-width: 500px;
+  max-width: 600px;
   height: max-content;
   margin: 26px auto;
+  
   
 }
 .collection-item{
@@ -57,4 +79,20 @@ a{
 
 .material-icons:hover{
   cursor: pointer;
+}
+.card-img-top{
+  height: 150px;
+  width: 310px;
+}
+h5{
+  text-align: center;
+}
+
+#more {display: none;}
+
+.card-title:hover{
+color: blueviolet;
+}
+.card-text:hover{
+  color: rgb(43, 113, 226);
 }

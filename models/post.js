@@ -7,7 +7,8 @@ const postSchema = new mongoose.Schema({
     },
     body:{
         type:String,
-        required:true
+        required:true,
+        createdAt: new Date()
     },
     photo:{
         type:String,
@@ -18,10 +19,14 @@ const postSchema = new mongoose.Schema({
         text:String,
         postedBy:{type:ObjectId,ref:"User"}
     }],
+
+    
     postedBy:{
        type:ObjectId,
        ref:"User"
-    }
-})
+    },
+    
+    
+},{timestamps:true})
 
 mongoose.model("Post",postSchema)
